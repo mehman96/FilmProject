@@ -1,0 +1,16 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<div class="container-sm">
+<hr>
+<h3 class="text-primary"> Update Testimonial</h3>
+<form action="/admin/testiupdate/{{number.id}}" method='POST'>
+<input type="text" class="form-control my-2" name="testi_number" placeholder="number "value="{{number.testi_number}}">
+<input type="text" class="form-control my-2" name="testi_heading" placeholder="heading"value="{{number.testi_heading}}">
+<input type="text" class="form-control my-2" name="testi_title" placeholder="txt"value="{{number.testi_title}}">
+<input type="submit" class="btn btn-primary btn-lg " value=" About text Update">
+<hr>
+</form>
+</div>
+
+{% endblock %}

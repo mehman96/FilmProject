@@ -1,0 +1,49 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<div class="container bg-dark bg-gradient">
+    <hr>
+    <div class="row">
+    <h3 class="text-primary">Add Client </h3>
+    <div class="col-12">
+    <form action="/admin/client" method='POST' enctype="multipart/form-data" >
+    <input type="file" class="form-control my-2"name="logo_img"placeholder="logo img">
+    <input type="submit" class="btn btn-primary btn-lg" value="Add client">
+<hr>
+</form>
+</div>
+<hr>
+<div class="container-sm">
+<h3 class="text-warning">Client</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-warning" >id</th>
+            <th class="text-warning" >logo</th>
+        </tr>
+    </thead>
+    <hr>
+</div>
+    
+    <tbody>
+        {% for logo  in logos %}
+
+        <tr>
+            <td  class="text-primary" scope="row">{{logo.id}}</td>
+            <td class="text-primary">{{logo.logo_img}}</td>
+            <td>
+                <a href="/admin/clientdelete/{{logo.id}}"> <i class="fas fa-trash-alt"></i></a>
+                <a href="/admin/clientupdate/{{logo.id}}"> <i class="fas fa-edit"></i></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+ 
+  </div>
+</div>
+
+
+
+{% endblock %}

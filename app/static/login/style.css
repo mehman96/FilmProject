@@ -1,0 +1,15 @@
+body,html {
+  background-image: url('../login/img/fon.jpg');
+  height: 100%;
+}
+
+#profile-img {
+  height:180px;
+}
+.h-80 {
+  height: 50% !important;
+}
+
+.img-xs{
+  height: 321% !important;
+}

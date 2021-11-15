@@ -1,0 +1,17 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<div class="container-sm">
+<hr>
+<h3 class="text-primary"> Update Services</h3>
+<form action="/admin/serviceupdate/{{blog.id}}" method='POST'>
+<input type="text"  class="form-control my-2" name="service_icon_name"  placeholder="icon name" value="{{blog.service_icon_name}}">
+<input type="text"  class="form-control my-2" name="service_icon"  placeholder="icon" value="{{blog.service_icon}}">
+<input type="text"  class="form-control my-2" name="service_subheading"  placeholder="head " value="{{blog.service_subheading}}">
+<input type="text"  class="form-control my-2" name="service_subheading_url"  placeholder="url " value="{{blog.service_subheading_url}}">
+<input type="text"  class="form-control my-2" name="service_text"  placeholder="head" value="{{blog.service_text}}">
+<input type="submit" class="btn btn-primary btn-lg" value="Update services">
+<hr>
+</form>
+</div>
+{% endblock %}

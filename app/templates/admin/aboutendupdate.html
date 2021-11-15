@@ -1,0 +1,13 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<div class="container-sm">
+<hr>
+<h3 class="text-primary"> Update About Desc</h3>
+<form action="/admin/aboutendupdate/{{txt.id}}" method='POST'>
+<input type="text" class="form-control my-2" name="about_end_desc" placeholder="txt" value="{{txt.about_end_desc}}">
+<input type="submit" class="btn btn-primary btn-lg" value="About Desc update">
+<hr>
+</form>
+</div>
+{% endblock %}

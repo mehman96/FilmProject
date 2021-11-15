@@ -1,0 +1,15 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<div class="container-sm">
+<hr>
+<h3 class="text-primary">Navbar  menu Update</h3>
+<form action="/admin/navbarmenuupdate/{{menu.id}}" method='POST'>
+<input type="text" class="form-control my-2" name="navbar_menu_name" placeholder="sub heading" value="{{menu.navbar_menu_name}}">
+<input type="text" class="form-control my-2" name="navbar_menu_name_url" placeholder="sub heading" value="{{menu.navbar_menu_name_url}}">
+<input type="submit" class="btn btn-primary btn-lg" value="   men Update">
+<hr>
+</form>
+</div>
+
+{% endblock %}

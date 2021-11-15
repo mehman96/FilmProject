@@ -1,0 +1,61 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+<div class="container bg-dark bg-gradient">
+<hr>
+<div class="row">
+<h3 class="text-primary">Add Navbar Slider</h3>
+<div class="col-12">
+<form action="/admin/slider" method='POST' enctype="multipart/form-data" >
+    <input type="file" class="form-control my-2" name="slider_img" placeholder=" img ">
+    <input type="text" class="form-control my-2" name="slider_heading" placeholder=" Heading ">
+    <input type="text" class="form-control my-2" name="slider_desc" placeholder="desc ">
+    <input type="text" class="form-control my-2" name="slider_btn_name" placeholder="btn name ">
+    <input type="submit" class="btn btn-primary btn-lg" value="Add Slider">
+    <hr>
+</form>
+</div>
+<hr>
+<div class="col-12">
+<h3 class="text-warning"> Navbar Slider</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-warning">id</th>
+            <th class="text-warning">img </th>
+            <th class="text-warning">heading </th>
+            <th class="text-warning">desc </th>
+            <th class="text-warning"> btn name</th>
+            <th class="text-warning">Actions</th>
+        </tr>
+    </thead>
+    <hr>
+</div>
+<div class="col align-self-end">
+    <tbody>
+        {% for slider in sliders %}
+
+        <tr>
+            <td class="text-primary"  scope="row">{{slider.id}}</td>
+            <td class="text-primary">{{slider.slider_img}}</td>
+            <td class="text-primary">{{slider.slider_heading}}</td>
+            <td class="text-primary">{{slider.slider_desc}} </td>
+            <td class="text-primary">{{slider.slider_btn_name}} </td>
+ 
+ 
+            <td>
+                <a href="/admin/sliderdelete/{{slider.id}}"> <i class="fas fa-trash-alt"></i></a>
+                <a href="/admin/sliderupdate/{{slider.id}}"> <i class="fas fa-edit"></i></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+     </div>
+   </div>
+ </div>
+
+
+{% endblock %}

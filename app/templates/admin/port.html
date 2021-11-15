@@ -1,0 +1,53 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<div class="container bg-dark bg-gradient">
+<hr>
+<div class="row">
+<h3 class="text-primary">Add Portfolio Heading</h3>
+<div class="col-12">
+<form action="/admin/port" method='POST'>
+    <input type="text" class="form-control my-2"name="port_heading"placeholder="portfolio heading">
+    <input type="text" class="form-control my-2"name="port_desc"placeholder="portfolio desc ">    
+    <input type="submit" class="btn btn-primary btn-lg" value="Add Portfolio ">
+<hr>
+</form>
+</div>
+<hr>
+<div class="col-12">
+<h3 class="text-warning"> Portfolio</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-warning">id</th>
+            <th class="text-warning">Portfolio </th>
+            <th class="text-warning">Portfolio desc</th>
+            <th class="text-warning">Actions</th>
+        </tr>
+    </thead>
+    <hr>
+</div>
+<div class="col align-self-end">
+    <tbody>
+        {% for port  in ports %}
+
+        <tr>
+            <td class="text-primary" scope="row">{{port.id}}</td>
+            <td class="text-primary" >{{port.port_heading}}</td>
+            <td class="text-primary">{{port.port_desc}}</td>
+            <td>
+                <a href="/admin/portdelete/{{port.id}}"> <i class="fas fa-trash-alt"></i></a>
+                <a href="/admin/portupdate/{{port.id}}"> <i class="fas fa-edit"></i></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+     </div>
+  </div>
+</div>
+ 
+
+
+{% endblock %}

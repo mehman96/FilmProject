@@ -1,0 +1,54 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+
+<div class="container bg-dark bg-gradient">
+<hr>
+<div class="row">
+<h3 class="text-primary">Add Navbar menu name</h3>
+<div class="col-12">
+<form action="/admin/navbarmenu" method='POST'>
+    <input type="text" class="form-control my-2" name="navbar_menu_name" placeholder="navbar menu name">
+    <input type="text" class="form-control my-2" name="navbar_menu_name_url" placeholder="menu name url">
+    <input type="submit" class="btn btn-primary btn-lg" value="Add menu name">
+    <hr>
+</form>
+</div>
+<hr>
+<div class="col-12">
+<h3 class="text-warning"> Navbar Menu name</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-warning">id</th>
+            <th class="text-warning">menu name</th>
+            <th class="text-warning">Actions</th>
+        </tr>
+    </thead>
+    <hr>
+</div>
+<div class="col align-self-end">
+    <tbody>
+        {% for menu in menus %}
+
+        <tr>
+            <td class="text-primary"  scope="row">{{menu.id}}</td>
+            <td class="text-primary">{{menu.navbar_menu_name}}</td>
+            <td class="text-primary">{{menu.navbar_menu_name_url}}</td>
+ 
+            <td>
+                <a href="/admin/navbarmenudelete/{{menu.id}}"> <i class="fas fa-trash-alt"></i></a>
+                <a href="/admin/navbarmenuupdate/{{menu.id}}"> <i class="fas fa-edit"></i></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+     </div>
+   </div>
+ </div>
+
+
+{% endblock %}

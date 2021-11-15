@@ -1,0 +1,15 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<div class="container-sm">
+<hr>
+<h3 class="text-primary"> Update Portfolio Heading</h3>
+<form action="/admin/portupdate/{{port.id}}" method='POST'>
+<input type="text" class="form-control my-2" name="port_heading" placeholder=" heading" value="{{port.port_heading}}">
+<input type="text" class="form-control my-2" name="port_desc" placeholder="desc"value="{{port.port_desc}}">
+<input type="submit" class="btn btn-primary btn-lg" value="Portfolio Heading  Update">
+
+</form>
+
+
+{% endblock %}

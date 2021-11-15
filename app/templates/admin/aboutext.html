@@ -1,0 +1,52 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<div class="container bg-dark bg-gradient">
+<hr>
+<div class="row">
+<h3 class="text-primary" >Add about text</h3>
+<div class="col-12">
+<form action="/admin/aboutext" method='POST'>
+    <input type="text" class="form-control my-2" name="about_subheading" placeholder="about heading ">
+    <input type="text" class="form-control my-2" name="about_title" placeholder=" txt">
+    <input type="submit" class="btn btn-primary btn-lg" value="Add about text">
+<hr>
+</form>
+</div>
+<hr>
+<div class="col align-self-center">
+<h3 class="text-warning"> About text</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-warning">id</th>
+            <th class="text-warning">Heading</th>
+            <th class="text-warning">Desc</th>
+            <th class="text-warning">Actions</th>
+        </tr>
+    </thead>
+    <hr>
+    </div>
+    <div class="col align-self-end">
+    <tbody>
+        {% for aboutext in aboutexts %}
+
+        <tr>
+            <td  class="text-primary"  scope="row">{{aboutext.id}}</td>
+            <td class="text-primary" >{{aboutext.about_subheading}}</td>
+            <td class="text-primary" >{{aboutext.about_title}}</td>
+
+            <td>
+                <a href="/admin/aboutextdelete/{{aboutext.id}}"> <i class="fas fa-trash-alt"></i></a>
+                <a href="/admin/aboutextupdate/{{aboutext.id}}"> <i class="fas fa-edit"></i></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+     </div>
+  </div>
+ </div>
+
+{% endblock %}

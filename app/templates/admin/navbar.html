@@ -1,0 +1,61 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+
+<div class="container bg-dark bg-gradient">
+<hr>
+<div class="row">
+<h3 class="text-primary">Add Navbar Icon</h3>
+<div class="col-12">
+<form action="/admin/navbar" method='POST'>
+    <input type="text" class="form-control my-2" name="navbar_icon_name" placeholder="icon name">
+    <input type="text" class="form-control my-2" name="navbar_icon" placeholder="icon ">
+    <input type="text" class="form-control my-2" name="navbar_icon_txt" placeholder="icon txt ">
+    <input type="text" class="form-control my-2" name="navbar_icon_url" placeholder=" url">
+    <input type="submit" class="btn btn-primary btn-lg" value="Add icon">
+    <hr>
+</form>
+</div>
+<hr>
+<div class="col-12">
+<h3 class="text-warning"> Navbar icon</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-warning">id</th>
+            <th class="text-warning">icon name</th>
+            <th class="text-warning">İcon </th>
+            <th class="text-warning">icon text</th>
+            <th class="text-warning"> icon_url</th>
+            <th class="text-warning">Actions</th>
+        </tr>
+    </thead>
+    <hr>
+</div>
+<div class="col align-self-end">
+    <tbody>
+        {% for nav in navs %}
+
+        <tr>
+            <td class="text-primary"  scope="row">{{nav.id}}</td>
+            <td class="text-primary">{{nav.navbar_icon_name}}</td>
+            <td class="text-primary">{{nav.navbar_icon}}</td>
+            <td class="text-primary">{{nav.navbar_icon_txt}}</td>
+            <td class="text-primary">{{nav.navbar_icon_url}} </td>
+ 
+            <td>
+                <a href="/admin/navbardelete/{{nav.id}}"> <i class="fas fa-trash-alt"></i></a>
+                <a href="/admin/navbarupdate/{{nav.id}}"> <i class="fas fa-edit"></i></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+     </div>
+   </div>
+ </div>
+
+
+{% endblock %}

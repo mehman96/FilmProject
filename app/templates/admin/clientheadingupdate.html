@@ -1,0 +1,15 @@
+
+{% extends "admin/base.html" %}
+
+{% block content %}
+<div class="container-sm">
+<hr>
+<h3 class="text-primary"> Update Client Heading</h3>
+<form action="/admin/clientheadingupdate/{{clienthead.id}}" method='POST'>
+<input type="text" class="form-control my-2" name="client_heading" placeholder="heading"value="{{clienthead.client_heading}}">
+<input type="text" class="form-control my-2" name="client_desc" placeholder="desc"value="{{clienthead.client_desc}}">
+<input type="submit" class="btn btn-primary btn-lg" value=" Client Heading Update">
+<hr>
+</form>
+
+{% endblock %}
